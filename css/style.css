@@ -1,5 +1,5 @@
 body {
-    font-family: "Fragment", monospace; 
+    font-family: "Roboto", monospace; 
     font-size: 0.85vw;
     margin-top: 1%;
     position: fixed;
@@ -13,7 +13,7 @@ body {
 
 
 #content {
-    width: 65vw;
+    width: 72vw;
     height: 98vh;
     display: inline-block;
     overflow-y: scroll;
@@ -24,23 +24,23 @@ body {
 
 
 #cv {
-    width: 25vw;
+    width: 16vw;
     height: 98vh;
     display: inline-block;
     vertical-align: top;
     overflow-y: scroll;
-    margin-left: 8vw;
+    margin-left: 10vw;
 }
 
 .proj {
-    height: 40vh;
+    height: 42.5vh;
     display:block;
     
 }
 
 hr {
   
-     height: 0.05vw;
+    height: 0.05vw;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 60%, rgba(255,255,255,0) 0%);
     background-position: bottom;
     background-size: 0.5vw 1vw;
@@ -106,12 +106,17 @@ hr {
     display: inline-block;
      margin-top: 2%;
     margin-left: 4%;
-    width: 8%;
+    width: 10%;
     line-height: 120%;
     font-size: 0.7vw;
     vertical-align: top;
     text-align: end;
-    
+}
+
+
+.keywords {
+    color: #737373;
+    font-size: 13px;
 }
 
 
@@ -124,6 +129,7 @@ hr {
 
 
 #doublealign{
+    font-size: 14px;
     display: flex;
   justify-content: space-between;
     width: 95%;
@@ -160,6 +166,7 @@ hr {
     margin-left: 2vw;
      display: inline-block;
     margin-bottom: 3vw;
+     width: 100%;
 }
 
 
@@ -184,7 +191,6 @@ hr {
     position: absolute;
     width: 100%;
     margin-left: 1.5vw;
-    
         
 }
 
@@ -196,3 +202,173 @@ a:link {color: grey}
 a:visited {color: grey}
 a:hover {color: grey}
 a:active {color: grey}
+
+
+
+/* --------- LOADER --------- */
+
+
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* sempre sopra il resto */
+}
+
+#loading-image {
+    width: 100px; /* dimensione del GIF */
+    height: 100px;
+}
+
+
+
+
+
+
+/* --------- FILTRI --------- */
+
+.filter {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.filter.inactive {
+    opacity: 0.3;
+}
+
+.filter.active {
+    opacity: 1;
+    font-weight: bold;
+}
+
+#clear-filter {
+    cursor: pointer;
+    margin-left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#clear-filter.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.proj {
+    transition: opacity 0.3s ease;
+}
+
+.proj.hidden {
+    opacity: 0;
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;   /* base leggibile */
+        margin 1rem;
+    }
+
+    /* CV */
+    #cv {
+        order: 1;
+        width: 100%;
+        height: auto;
+        margin: 1rem 0 2rem 0;
+        font-size: 16px;
+    }
+
+    #cv *,
+    .cv-text,
+    .exp,
+    .second-text {
+        font-size: 14px !important;
+         text-align: start;
+        
+    }
+    
+    #doublealign {
+        font-size: 18px! important;
+    }
+
+    /* CONTENT */
+    #content {
+        order: 2;
+        width: 100%;
+        height: auto;
+    }
+    
+    .descrizione {
+        display: none;
+    }
+    
+    .keywords {
+        display: none;
+    }
+
+    .info {
+        display: none;
+    }
+    
+    .second-text{
+        display: none;
+    }
+
+    /* ELIMINA ALTEZZE FISSE (causa overlap) */
+    .proj,
+    .preview,
+    .view,
+    .gallery,
+    .gallery_v2 {
+        height: auto !important;
+        max-height: 250px;
+    }
+    
+    .proj 
+    {
+        margin: 5rem 0;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* layout verticale */
+    .preview,
+    .first-text,
+    .desc,
+    .desc2,
+    .gallery {
+        display: block;
+        width: 100%;
+        margin: 0 0 0 0;
+        float: none;
+    }
+
+    #doublealign,
+    #justified {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    hr {
+       display: none;
+        }
+        
+        
+}
